@@ -1,12 +1,12 @@
 import React, { PropTypes } from "react"
 import { BodyContainer } from "phenomic"
-import LatestPosts from "../../components/LatestPosts"
+
+import LatestProjects from "../../components/LatestProjects"
 import Page from "../Page"
 
 import styles from "./index.css"
 
-const Post = (props) => {
-  // console.log('props:', props);
+const Project = (props) => {
   // it's up to you to choose what to do with this layout ;)
   const pageDate = props.head.date ? new Date(props.head.date) : null
 
@@ -32,14 +32,14 @@ const Post = (props) => {
         </BodyContainer>
       </div>
       <hr />
-      <LatestPosts />
+      <LatestProjects />
     </Page>
   )
 }
 
-Post.propTypes = {
+Project.propTypes = {
   head: PropTypes.object.isRequired,
   body: PropTypes.string
 }
 
-export default Post
+export default Project

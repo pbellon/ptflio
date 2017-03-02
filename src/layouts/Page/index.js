@@ -1,10 +1,11 @@
 import React, { PropTypes } from "react"
 import Helmet from "react-helmet"
 import warning from "warning"
-import { BodyContainer, joinUri } from "phenomic"
+import { joinUri } from "phenomic"
 
-import Loading from "../../components/Loading"
-import Header from "../../components/Header"
+// import Loading from "../../components/Loading"
+// import Header from "../../components/Header"
+import Sidebar from "../../components/Sidebar"
 
 import styles from "./index.css"
 
@@ -14,8 +15,8 @@ const Page = (
     __filename,
     __url,
     head,
-    body,
-    header,
+    // body,
+    sidebar,
     footer,
     children,
   },
@@ -27,7 +28,13 @@ const Page = (
     typeof head.title === "string",
     `Your page '${ __filename }' needs a title`
   )
-
+  const defaultsSidebar = {
+    title: 'Pierre Bellon',
+    description: 'Ceci est une description',
+    twitter: '@toutenrab',
+    linkedIn: '@@'
+  }
+  const _sidebar = Object.assign({}, sidebar, defaultsSidebar)
   const metaTitle = head.metaTitle ? head.metaTitle : head.title
 
   const socialImage = head.hero && head.hero.match("://") ? head.hero
@@ -57,19 +64,14 @@ const Page = (
         meta={ meta }
       />
       <div className={ styles.wrapper + " " + styles.pageContent }>
-        <div className={styles.header}>
-          <Header>
-            { header }
-          </Header>
+        <div className={ styles.row }>
+          <div className={styles.sidebar}>
+            <Sidebar metadata={ {pkg:pkg} } { ..._sidebar }/>
+          </div>
+          <div className={styles.body}>
+            { children }
+          </div>
         </div>
-        <div className={ styles.body }>
-          {
-            isLoading
-            ? <Loading />
-            : <BodyContainer>{ body }</BodyContainer>
-          }
-        </div>
-        { children }
         { footer }
       </div>
     </div>
@@ -82,8 +84,8 @@ Page.propTypes = {
   __filename: PropTypes.string,
   __url: PropTypes.string,
   head: PropTypes.object.isRequired,
-  body: PropTypes.string,
-  header: PropTypes.element,
+  // body: PropTypes.string,
+  sidebar: PropTypes.object,
   footer: PropTypes.element,
 }
 
