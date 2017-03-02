@@ -9,18 +9,18 @@ import styles from "./index.css"
 const defaultNumberOfPosts = 6
 
 const LatestPosts = (props, { collection }) => {
-  console.log('collection:', collection);
   const latestPosts = enhanceCollection(collection, {
-    filter: { layout: "Post" },
+    filter: { layout: props.postType },
     sort: "date",
     reverse: true,
   })
   .slice(0, props.numberOfPosts || defaultNumberOfPosts)
+  // console.log('latestPosts:', latestPosts, props.numberOfPosts, defaultNumberOfPosts);
 
   return (
     <div>
-      <h2 className={ styles.latestPosts }>
-        { "Latest Posts" }
+      <h2 className={ styles.title }>
+        { props.title }
       </h2>
       <PagesList pages={ latestPosts } />
     </div>
@@ -28,7 +28,14 @@ const LatestPosts = (props, { collection }) => {
 }
 
 LatestPosts.propTypes = {
+  postType: PropTypes.string,
+  title: PropTypes.string,
   numberOfPosts: PropTypes.number,
+}
+
+LatestPosts.defaultProps = {
+  postType: "Post",
+  title: "Latest Posts"
 }
 
 LatestPosts.contextTypes = {

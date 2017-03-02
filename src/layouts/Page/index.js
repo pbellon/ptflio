@@ -9,6 +9,9 @@ import Sidebar from "../../components/Sidebar"
 
 import styles from "./index.css"
 
+
+const descHTML = `I'm a web developer specialized in data-driven application and data-visualizations.`;
+
 const Page = (
   {
     isLoading,
@@ -30,7 +33,7 @@ const Page = (
   )
   const defaultsSidebar = {
     title: 'Pierre Bellon',
-    description: 'Ceci est une description',
+    description: descHTML,
     twitter: '@toutenrab',
     linkedIn: '@@'
   }

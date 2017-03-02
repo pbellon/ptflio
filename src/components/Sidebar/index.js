@@ -9,9 +9,9 @@ import gitHubSvg from "../icons/iconmonstr-github-1.svg"
 import styles from './index.css'
 
 const Sidebar = ({ className, title, description, metadata:{pkg} }) => (
-  <div className={ className }>
-    <h2>{ title }</h2>
-    <p>{ description }</p>
+  <div className={ styles.sidebar + ' '  + className }>
+    <h1 className={ styles.title }>{ title }</h1>
+    <p dangerouslySetInnerHTML={ { __html: description } }></p>
     <ul className={ styles.socials }>
       {
         pkg.twitter &&

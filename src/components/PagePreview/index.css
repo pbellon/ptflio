@@ -1,19 +1,17 @@
 .wrapper {
   /*max-width: 40rem;*/
-  margin: 1rem auto;
-  padding: 1rem 0;
-}
-
-.title {
-  font-size: 1.2rem;
-  font-weight: 900;
+  /*margin: 1rem auto;*/
+  /*padding: 1rem 0;*/
+  /*color: #333;*/
 }
 
 .meta {
   font-size: 0.75rem;
   opacity: 0.6;
 }
-
+.domain {
+  opacity: 0.8;
+}
 .description {
   font-size: 0.85rem;
 }

@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 import { BodyContainer } from "phenomic"
 
-import LatestProjects from "../../components/LatestProjects"
+import LatestPosts from "../../components/LatestPosts"
 import Page from "../Page"
 
 import styles from "./index.css"
@@ -32,7 +32,7 @@ const Project = (props) => {
         </BodyContainer>
       </div>
       <hr />
-      <LatestProjects />
+      <LatestPosts postType={'Project'}/>
     </Page>
   )
 }
