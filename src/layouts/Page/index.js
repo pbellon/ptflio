@@ -10,7 +10,7 @@ import Sidebar from "../../components/Sidebar"
 import styles from "./index.css"
 
 
-const descHTML = `I'm a web developer specialized in data-driven application and data-visualizations.`;
+const descHTML = `I'm a web developer freelance specialized in data-driven applications and data-visualizations.`;
 
 const Page = (
   {

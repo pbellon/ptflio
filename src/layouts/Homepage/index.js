@@ -8,8 +8,8 @@ const Homepage = (props) => {
   return (
     <Page { ...props }>
       <div className={styles.cols}>
-        <LatestPosts postType={ 'Project' } title={ 'Realisations' }/>
-        <LatestPosts numberOfPosts={ 4 }/>
+        <LatestPosts numberOfPosts={ 10 } postType={ 'Project' } title={ 'Realisations' }/>
+        <LatestPosts numberOfPosts={ 10 }/>
       </div>
     </Page>
   )

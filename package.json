@@ -2,6 +2,10 @@
   "private": true,
   "name": "pb-portfolio",
   "homepage": "http://pbellon.github.io",
+  "source_repository": {
+    "url": "http://github.com/pbellon/Portfolio",
+    "name": "GitHub"
+  },
   "twitter": "Toutenrab",
   "repository": "https://github.com/pbellon",
   "scripts": {
