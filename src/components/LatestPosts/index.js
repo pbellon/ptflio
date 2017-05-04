@@ -1,6 +1,6 @@
 /*eslint no-console: "off"*/
 import React, { PropTypes } from "react"
-import enhanceCollection from "phenomic/lib/enhance-collection"
+import enhanceCollection, { filter } from "phenomic/lib/enhance-collection"
 
 import PagesList from "../../components/PagesList"
 
@@ -9,20 +9,21 @@ import styles from "./index.css"
 const defaultNumberOfPosts = 6
 
 const LatestPosts = (props, { collection }) => {
-  const latestPosts = enhanceCollection(collection, {
+  const latestPosts = filter(enhanceCollection(collection, {
     filter: { layout: props.postType },
     sort: "date",
-    reverse: true,
+    reverse: true
   })
-  .slice(0, props.numberOfPosts || defaultNumberOfPosts)
-  // console.log('latestPosts:', latestPosts, props.numberOfPosts, defaultNumberOfPosts);
+  .slice(0, props.numberOfPosts || defaultNumberOfPosts),[
+    (p)=>p.title != props.exclude
+  ]);
 
   return (
-    <div>
+    <div className={ props.className }>
       <h2 className={ styles.title }>
         { props.title }
       </h2>
-      <PagesList pages={ latestPosts } />
+      <PagesList pages={ latestPosts } showLinkDomain={ props.showLinkDomain } />
     </div>
   )
 }
@@ -30,12 +31,16 @@ const LatestPosts = (props, { collection }) => {
 LatestPosts.propTypes = {
   postType: PropTypes.string,
   title: PropTypes.string,
+  exclude: PropTypes.string,
+  showLinkDomain: PropTypes.bool,
   numberOfPosts: PropTypes.number,
 }
 
 LatestPosts.defaultProps = {
   postType: "Post",
-  title: "Latest Posts"
+  title: "Latest Posts",
+  showLinkDomain: false,
+  exclude: ""
 }
 
 LatestPosts.contextTypes = {

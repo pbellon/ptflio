@@ -1,55 +1,57 @@
 :root {
-  --nav-item-padding: 0.5rem;
+  --blur-distance: 4px;
+  --animation-duration: 350ms;
 }
 
 .header {
-  position: absolute;
-  /* stretch */
-  left: 0;
-  right: 0;
-
-  color: var(--colorNeutralLight);
-}
-
-.nav {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: calc(var(--maxWidth) + (var(--nav-item-padding) * 2));
-  margin: 0 auto;
-  padding: 0;
-  line-height: 3rem;
-}
-
-.navPart1,
-.navPart2 {
-  display: flex;
-  flex-direction: row;
-}
-
-.link {
-  display: flex;
-  align-items: center;
-  padding: 0 var(--nav-item-padding);
-  color: inherit;
-  text-decoration: none !important;
+  justify-content: center;
   opacity: 0.6;
-  transition: 0.4s all;
-  border-bottom: 1px solid transparent;
-
-  &:hover,
-  &:focus {
-    color: inherit;
-    opacity: 1;
-    border-bottom-color: var(--colorNeutralLight);
-  }
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  min-height: 15em;
+  color: #FFF;
+  text-shadow: 0px 1px 1px black;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+  transition: text-shadow var(--animation-duration) ease;
+}
+.header:hover {
+  text-shadow: 0px 1px 3px black;
 }
 
-.link svg {
-  fill: currentColor;
-  opacity: 0.5;
-  margin-right: 0.5rem;
-  width: 14px;
-  height: 14px;
-  vertical-align: middle;
+.header:hover .header__background {
+  filter: blur(0px) brightness(100%) contrast(100%);
+}
+
+.header__background {
+  filter: blur(var(--blur-distance)) brightness(80%) contrast(120%);
+  background-size: cover;
+  background-position: 50% 50%;
+  transition: filter var(--animation-duration) ease;
+  position: absolute;
+  top:    calc(var(--blur-distance)*-2);
+  left:   calc(var(--blur-distance)*-2);
+  right:  calc(var(--blur-distance)*-2);
+  bottom: calc(var(--blur-distance)*-2);
+}
+
+.header__content {
+  overflow: visible;
+}
+
+.header h1 {
+  margin-bottom: 10px;
+  font-size: 3em;
+  margin-top:0;
+}
+
+.header time {
+  z-index: 100;
+  position: relative;
+  color: #F5F5F5;
+  font-size: 1.5em;
+  font-weight: bold;
 }

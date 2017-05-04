@@ -7,45 +7,41 @@ import gitHubSvg from "../icons/iconmonstr-github-1.svg"
 
 import styles from "./index.css"
 
-const Header = (props, { metadata: { pkg } }) => (
-  <header className={ styles.header }>
-    <nav className={ styles.nav }>
-      <div className={ styles.navPart1 }>
-        <Link
-          className={ styles.link }
-          to={ "/" }
-        >
-          { "Home" }
-        </Link>
-      </div>
-      <div className={ styles.navPart2 }>
-        {
-          pkg.twitter &&
-          <a
-            href={ `https://twitter.com/${pkg.twitter}` }
-            className={ styles.link }
-          >
-            <Svg svg={ twitterSvg } cleanup />
-            { "Twitter" }
-          </a>
-        }
-        {
-          pkg.repository &&
-          <a
-            href={ pkg.repository }
-            className={ styles.link }
-          >
-            <Svg svg={ gitHubSvg } cleanup />
-            { "GitHub" }
-          </a>
-        }
-      </div>
-    </nav>
-  </header>
-)
+const HeaderTitle = ({ link, title }) => {
+  if(link){
+    return (
+      <a rel="nofollow" target="_blank" href={ link } title={ `Visit ${title} website`}>
+        { title }
+      </a>
+    );
+  } else {
+    return (<span>
+      { title }
+    </span>);
+  }
+};
 
-Header.contextTypes = {
-  metadata: PropTypes.object.isRequired,
+HeaderTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  link: PropTypes.string
+};
+
+const Header = (props)=>{
+  const title = (<HeaderTitle link={ props.link } title={ props.title }/>);
+  const pageDate = props.date ? new Date(props.date) : null;
+  const headerStyle = {
+    backgroundImage: `url("/assets/${props.header}")`
+  };
+  return (
+    <header className={ styles.header }>
+      <div className={ styles.header__background }
+           style={ headerStyle }>
+      </div>
+      <div className={ styles.header__content}>
+        <h1>{ title }</h1>
+      </div>
+    </header>
+  );
 }
 
 export default Header

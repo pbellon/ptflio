@@ -4,11 +4,10 @@ import warning from "warning"
 import { joinUri } from "phenomic"
 
 // import Loading from "../../components/Loading"
-// import Header from "../../components/Header"
+import Header from "../../components/Header"
 import Sidebar from "../../components/Sidebar"
 
 import styles from "./index.css"
-
 
 const descHTML = `I'm a web developer freelance specialized in data-driven applications and data-visualizations.`;
 
@@ -18,7 +17,8 @@ const Page = (
     __filename,
     __url,
     head,
-    // body,
+    header,
+    body,
     sidebar,
     footer,
     children,
@@ -72,6 +72,9 @@ const Page = (
             <Sidebar metadata={ {pkg:pkg} } { ..._sidebar }/>
           </div>
           <div className={styles.body}>
+            { head.header &&
+              <Header { ...head }/>
+            }
             { children }
           </div>
         </div>

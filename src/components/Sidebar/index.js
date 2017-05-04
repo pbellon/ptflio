@@ -2,6 +2,7 @@ import React, { PropTypes } from "react"
 // import cx from "classnames"
 // import Markdown from "react-remarkable"
 import Svg from "react-svg-inline"
+import { Link } from "phenomic"
 
 import twitterSvg from "../icons/iconmonstr-twitter-1.svg"
 import gitHubSvg from "../icons/iconmonstr-github-1.svg"
@@ -10,7 +11,7 @@ import styles from './index.css'
 
 const Sidebar = ({ className, title, description, metadata:{pkg} }) => (
   <div className={ styles.sidebar + ' '  + className }>
-    <h1 className={ styles.title }>{ title }</h1>
+    <Link to={ '/' }><h1 className={ styles.title }>{ title }</h1></Link>
     <p dangerouslySetInnerHTML={ { __html: description } }></p>
     <ul className={ styles.socials }>
       {

@@ -2,6 +2,8 @@
 title: Spending Stories
 date: 2013-12-16
 layout: Project
+header: posts/spendingstories.png
+link: http://spendingstories.org
 ---
 What **23 billion** US dollars worth ? That's indeed a huge amount
 of money. But *how* huge ?<br/>

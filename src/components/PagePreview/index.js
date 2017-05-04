@@ -2,22 +2,21 @@ import React, { PropTypes } from "react"
 import { Link } from "phenomic"
 import styles from "./index.css"
 
-const PagePreview = ({ __url, title, link, type }) => {
+const PagePreview = ({ showLinkDomain, __url, title, link, postType }) => {
   const isExternal = (type)=>type && type == 'external'
+  console.log('postType', postType);
   const domain = (link)=>link && (new URL(link)).host
   const linkDomain = domain(link)
-  let linkEl = <Link to={ __url } className={ styles.title }>{ title }</Link>
-  if(isExternal(type)){
-    linkEl = <a href={__url } rel="nofollow" className={ styles.title }>{ title }</a>
+  let linkEl = <Link to={ __url } className={ styles.title }>{ title }</Link>;
+  if(isExternal(postType)){
+    linkEl = <a href={ link } rel="nofollow" target="_blank" className={ styles.title }>{ title }</a>;
   }
-
-  console.log(type, link, linkDomain);
 
   return (
     <div className={ styles.wrapper }>
       { linkEl }
-      { linkDomain &&
-          <span className={ styles.domain }>&nbsp;-&nbsp;({ linkDomain })</span>
+      { linkDomain && showLinkDomain &&
+          <span className={ styles.domain }>&#8287;({ linkDomain })</span>
       }
     </div>
   )

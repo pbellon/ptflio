@@ -2,6 +2,8 @@
 title: Tractatus tree
 date: 2014-10-10
 layout: Project
+link: http://pbellon.github.io/tractatus-tree/
+header: posts/tractatus-tree.png
 repository: https://github.com/pbellon/tractatus-tree
 ---
 This project is a personnal experimentation of how we can use a

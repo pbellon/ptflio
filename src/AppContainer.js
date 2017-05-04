@@ -12,7 +12,6 @@ import Footer from "./components/Footer"
 const AppContainer = (props) => (
   <Container>
     <DefaultHeadMeta />
-    <Header />
     <Content>
       { props.children }
     </Content>

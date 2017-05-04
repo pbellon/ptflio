@@ -9,7 +9,7 @@ const Homepage = (props) => {
     <Page { ...props }>
       <div className={styles.cols}>
         <LatestPosts numberOfPosts={ 10 } postType={ 'Project' } title={ 'Realisations' }/>
-        <LatestPosts numberOfPosts={ 10 }/>
+        <LatestPosts numberOfPosts={ 10 } title={ 'Writing' } showLinkDomain={ true }/>
       </div>
     </Page>
   )

@@ -4,7 +4,7 @@ import PagePreview from "../PagePreview"
 
 import styles from "./index.css"
 
-const PagesList = ({ pages }) => {
+const PagesList = ({ showLinkDomain, pages }) => {
   return (
     <div>
       {
@@ -13,7 +13,7 @@ const PagesList = ({ pages }) => {
         <ul className={ styles.list }>
           {
           pages.map((page) => (
-            <li className={styles.page} key={ page.title }><PagePreview { ...page } /></li>
+            <li className={styles.page} key={ page.title }><PagePreview showLinkDomain={ showLinkDomain } { ...page } /></li>
           ))
         }
         </ul>
@@ -25,6 +25,7 @@ const PagesList = ({ pages }) => {
 }
 
 PagesList.propTypes = {
+  showLinkDomain: PropTypes.bool,
   pages: PropTypes.array.isRequired,
 }
 

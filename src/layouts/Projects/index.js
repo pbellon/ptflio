@@ -8,23 +8,10 @@ import styles from "./index.css"
 
 const Project = (props) => {
   // it's up to you to choose what to do with this layout ;)
-  const pageDate = props.head.date ? new Date(props.head.date) : null
-
+  const pageDate = props.head.date ? new Date(props.head.date) : null;
   return (
     <Page
       { ...props }
-      header={
-        <div>
-          <header className={ styles.header }>
-            {
-              pageDate &&
-              <time key={ pageDate.toISOString() }>
-                { pageDate.toDateString() }
-              </time>
-            }
-          </header>
-        </div>
-      }
     >
       <div className={ styles.body }>
         <BodyContainer>

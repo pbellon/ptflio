@@ -11,6 +11,7 @@
 }
 .domain {
   opacity: 0.8;
+  display: inline;
 }
 .description {
   font-size: 0.85rem;

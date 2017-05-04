@@ -5,7 +5,6 @@ import metadata from '../../metadata';
 
 const Footer = () => {
   const repository = metadata.pkg.source_repository;
-  console.log('repo', repository);
   return (
     <footer className={ styles.footer }>
       { /* If you like Phenomic, this is a way to share the love ;) */ }
